@@ -27,7 +27,9 @@ public class BodyPartFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater
+            , @Nullable ViewGroup container
+            , @Nullable Bundle savedInstanceState) {
         if (savedInstanceState != null){
             listOfImage = savedInstanceState.getIntegerArrayList(IMAGE_LIST);
             index = savedInstanceState.getInt(IMAGE_INDEX);

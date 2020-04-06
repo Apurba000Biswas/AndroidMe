@@ -1,6 +1,7 @@
 
 package com.daktardekhao.androidme.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.daktardekhao.androidme.R;
@@ -16,15 +17,24 @@ public class AndroidMeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_me);
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        int headIndex = bundle.getInt("headIndex");
+        int bodyIndex = bundle.getInt("bodyIndex");
+        int legIndex = bundle.getInt("legIndex");
+
         if (savedInstanceState == null){
             BodyPartFragment headFragment = new BodyPartFragment();
             headFragment.setListOfImage(AndroidImageAssets.getHeads());
+            headFragment.setIndex(headIndex);
 
             BodyPartFragment bodyFragment = new BodyPartFragment();
             bodyFragment.setListOfImage(AndroidImageAssets.getBodies());
+            bodyFragment.setIndex(bodyIndex);
 
             BodyPartFragment legFragment = new BodyPartFragment();
             legFragment.setListOfImage(AndroidImageAssets.getLegs());
+            legFragment.setIndex(legIndex);
 
             FragmentManager fragmentManager = getSupportFragmentManager();
 
